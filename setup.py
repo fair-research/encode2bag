@@ -34,7 +34,7 @@ setup(
         'urlparse'],
     install_requires=['requests',
                       'certifi',
-                      'bdbag-0.8.8'],
+                      'bdbag==0.8.8'],
     dependency_links=[
          "http://github.com/ini-bdds/bdbag/archive/master.zip#egg=bdbag-0.8.8"
     ],
