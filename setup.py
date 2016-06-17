@@ -34,11 +34,9 @@ setup(
         'urlparse'],
     install_requires=['requests',
                       'certifi',
-                      'bdbag-0.8.8',
-                      'minid-0.1.0'],
+                      'bdbag-0.8.8'],
     dependency_links=[
-         "http://github.com/ini-bdds/bdbag/archive/master.zip#egg=bdbag-0.8.8",
-         "http://github.com/ini-bdds/minid/archive/master.zip#egg=minid-0.1.0",
+         "http://github.com/ini-bdds/bdbag/archive/master.zip#egg=bdbag-0.8.8"
     ],
     license='Apache 2.0',
     classifiers=[

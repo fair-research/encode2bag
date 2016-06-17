@@ -166,5 +166,5 @@ def create_bag_from_url(url,
 
 
 def register_minid_for_bag():
-    pass
+    logger.error("Not implemented")
 
