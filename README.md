@@ -1,4 +1,6 @@
 # encode2bag
+[![Build Status](https://travis-ci.org/ini-bdds/encode2bag.svg)](https://travis-ci.org/ini-bdds/encode2bag)
+
 Utility for converting ENCODE search URLs or metadata files into BDBags
 
 ### Dependencies
