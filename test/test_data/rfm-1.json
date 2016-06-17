@@ -1,0 +1,170 @@
+[
+    {
+        "filename": "ENCFF000MPQ.bam",
+        "length": "865341224",
+        "md5": "d3ae13b583a505be25101d83f57d8bed",
+        "url": "https://www.encodeproject.org/files/ENCFF000MPQ/@@download/ENCFF000MPQ.bam"
+    },
+    {
+        "filename": "ENCFF000MPR.bam",
+        "length": "991182750",
+        "md5": "e6b2f8a365e9845c4d22e8bef0a48c39",
+        "url": "https://www.encodeproject.org/files/ENCFF000MPR/@@download/ENCFF000MPR.bam"
+    },
+    {
+        "filename": "ENCFF000MPV.bam",
+        "length": "1706390459",
+        "md5": "eabc370c45bb514789a5a381cb27a02c",
+        "url": "https://www.encodeproject.org/files/ENCFF000MPV/@@download/ENCFF000MPV.bam"
+    },
+    {
+        "filename": "ENCFF000MPW.bam",
+        "length": "2003863313",
+        "md5": "6be1ae16cbbda7b7576a4c4b0ffbd6d1",
+        "url": "https://www.encodeproject.org/files/ENCFF000MPW/@@download/ENCFF000MPW.bam"
+    },
+    {
+        "filename": "ENCFF000MPX.bigWig",
+        "length": "51328819",
+        "md5": "bd15af281c3bcfb56ecb4e981fd1edec",
+        "url": "https://www.encodeproject.org/files/ENCFF000MPX/@@download/ENCFF000MPX.bigWig"
+    },
+    {
+        "filename": "ENCFF000MPY.bigWig",
+        "length": "50822394",
+        "md5": "8c1cca3db94bd7e7f8a422f0421d6258",
+        "url": "https://www.encodeproject.org/files/ENCFF000MPY/@@download/ENCFF000MPY.bigWig"
+    },
+    {
+        "filename": "ENCFF000MPZ.bigWig",
+        "length": "83393927",
+        "md5": "a90ce847c6443c245db06714bf738484",
+        "url": "https://www.encodeproject.org/files/ENCFF000MPZ/@@download/ENCFF000MPZ.bigWig"
+    },
+    {
+        "filename": "ENCFF000MQA.fastq.gz",
+        "length": "802766498",
+        "md5": "5d2255d2b5859cb86740f490f1c37808",
+        "url": "https://www.encodeproject.org/files/ENCFF000MQA/@@download/ENCFF000MQA.fastq.gz"
+    },
+    {
+        "filename": "ENCFF000MQB.fastq.gz",
+        "length": "978793781",
+        "md5": "e7db27f8afa1e832f407e4e35b4d4ed6",
+        "url": "https://www.encodeproject.org/files/ENCFF000MQB/@@download/ENCFF000MQB.fastq.gz"
+    },
+    {
+        "filename": "ENCFF000MQC.fastq.gz",
+        "length": "2379394810",
+        "md5": "1872879e6edcab751ca56f5a61e7f89f",
+        "url": "https://www.encodeproject.org/files/ENCFF000MQC/@@download/ENCFF000MQC.fastq.gz"
+    },
+    {
+        "filename": "ENCFF000MQD.bigWig",
+        "length": "79792156",
+        "md5": "7503d145357c2250acfa8144f864158c",
+        "url": "https://www.encodeproject.org/files/ENCFF000MQD/@@download/ENCFF000MQD.bigWig"
+    },
+    {
+        "filename": "ENCFF000MQF.gtf.gz",
+        "length": "7167082",
+        "md5": "531cb0057ee3114e142964e283636ddf",
+        "url": "https://www.encodeproject.org/files/ENCFF000MQF/@@download/ENCFF000MQF.gtf.gz"
+    },
+    {
+        "filename": "ENCFF000MQG.fastq.gz",
+        "length": "2081033295",
+        "md5": "0ad203370360e102cb05be8886168656",
+        "url": "https://www.encodeproject.org/files/ENCFF000MQG/@@download/ENCFF000MQG.fastq.gz"
+    },
+    {
+        "filename": "ENCFF000MQH.gtf.gz",
+        "length": "7161422",
+        "md5": "6dcc2f2d30475a92f95dc32d22786bdd",
+        "url": "https://www.encodeproject.org/files/ENCFF000MQH/@@download/ENCFF000MQH.gtf.gz"
+    },
+    {
+        "filename": "ENCFF000MQJ.gtf.gz",
+        "length": "7218247",
+        "md5": "b33f159e2489154c0e5d95f99e32eb21",
+        "url": "https://www.encodeproject.org/files/ENCFF000MQJ/@@download/ENCFF000MQJ.gtf.gz"
+    },
+    {
+        "filename": "ENCFF000MQM.gtf.gz",
+        "length": "7201674",
+        "md5": "64066ebabc090a6ef471003d5fafe4ca",
+        "url": "https://www.encodeproject.org/files/ENCFF000MQM/@@download/ENCFF000MQM.gtf.gz"
+    },
+    {
+        "filename": "ENCFF745ZQE.fastq.gz",
+        "length": "1385964995",
+        "md5": "0645eba60d569a86e66fd48cccdfcf23",
+        "url": "https://www.encodeproject.org/files/ENCFF745ZQE/@@download/ENCFF745ZQE.fastq.gz"
+    },
+    {
+        "filename": "ENCFF515XQX.fastq.gz",
+        "length": "1548935160",
+        "md5": "98539a0ca84625fa1b9501776d984738",
+        "url": "https://www.encodeproject.org/files/ENCFF515XQX/@@download/ENCFF515XQX.fastq.gz"
+    },
+    {
+        "filename": "ENCFF770PHF.fastq.gz",
+        "length": "1375281546",
+        "md5": "8e9a14fd75ef30216b42e715f9fcee68",
+        "url": "https://www.encodeproject.org/files/ENCFF770PHF/@@download/ENCFF770PHF.fastq.gz"
+    },
+    {
+        "filename": "ENCFF918YJX.fastq.gz",
+        "length": "1561631499",
+        "md5": "99ea605b537fd90c787b523f117926ae",
+        "url": "https://www.encodeproject.org/files/ENCFF918YJX/@@download/ENCFF918YJX.fastq.gz"
+    },
+    {
+        "filename": "ENCFF313ZMT.fastq.gz",
+        "length": "2448909320",
+        "md5": "813e296ff191d60f04cdda566edd2d41",
+        "url": "https://www.encodeproject.org/files/ENCFF313ZMT/@@download/ENCFF313ZMT.fastq.gz"
+    },
+    {
+        "filename": "ENCFF391YOQ.fastq.gz",
+        "length": "2441197098",
+        "md5": "05cdd04dfcb1c3ded25d7111beca9f77",
+        "url": "https://www.encodeproject.org/files/ENCFF391YOQ/@@download/ENCFF391YOQ.fastq.gz"
+    },
+    {
+        "filename": "ENCFF622LGF.fastq.gz",
+        "length": "2408050689",
+        "md5": "15f1a90943f6d64e70e36c7b64696464",
+        "url": "https://www.encodeproject.org/files/ENCFF622LGF/@@download/ENCFF622LGF.fastq.gz"
+    },
+    {
+        "filename": "ENCFF857HKX.fastq.gz",
+        "length": "2504176074",
+        "md5": "bce96584054339688fe4aa4741eaa957",
+        "url": "https://www.encodeproject.org/files/ENCFF857HKX/@@download/ENCFF857HKX.fastq.gz"
+    },
+    {
+        "filename": "ENCFF191BQI.fastq.gz",
+        "length": "1552029860",
+        "md5": "a2b2a1945b57aaf68e220f765ae91ecc",
+        "url": "https://www.encodeproject.org/files/ENCFF191BQI/@@download/ENCFF191BQI.fastq.gz"
+    },
+    {
+        "filename": "ENCFF821RSH.fastq.gz",
+        "length": "1155693430",
+        "md5": "51a9d0d4ae79fb52a849ea9983d51d75",
+        "url": "https://www.encodeproject.org/files/ENCFF821RSH/@@download/ENCFF821RSH.fastq.gz"
+    },
+    {
+        "filename": "ENCFF154BSY.fastq.gz",
+        "length": "1605124305",
+        "md5": "c2b4ac9e809a411d8a252f46dc76bbca",
+        "url": "https://www.encodeproject.org/files/ENCFF154BSY/@@download/ENCFF154BSY.fastq.gz"
+    },
+    {
+        "filename": "ENCFF608BPQ.fastq.gz",
+        "length": "1117238693",
+        "md5": "fcd7a9ac6dcc993abf4c0c1a87c7ddbe",
+        "url": "https://www.encodeproject.org/files/ENCFF608BPQ/@@download/ENCFF608BPQ.fastq.gz"
+    }
+]
