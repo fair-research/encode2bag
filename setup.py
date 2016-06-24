@@ -14,7 +14,7 @@ setup(
     url='https://github.com/ini-bdds/encode2bag/',
     maintainer='USC Information Sciences Institute ISR Division',
     maintainer_email='misd-support@isi.edu',
-    version="0.1.0",
+    version="0.1.1",
     packages=find_packages(),
     test_suite='test',
     entry_points={
@@ -34,9 +34,9 @@ setup(
         'urlparse'],
     install_requires=['requests',
                       'certifi',
-                      'bdbag==0.8.8'],
+                      'bdbag==0.8.9'],
     dependency_links=[
-         "http://github.com/ini-bdds/bdbag/archive/master.zip#egg=bdbag-0.8.8"
+         "http://github.com/ini-bdds/bdbag/archive/master.zip#egg=bdbag-0.8.9"
     ],
     license='Apache 2.0',
     classifiers=[

@@ -101,11 +101,10 @@ class TestAPI(unittest.TestCase):
     def testCreateBagFromMetadataFile1(self):
         try:
             metadata_file = osp.abspath(osp.join("test", "test_data", "metadata-1.tsv"))
-            remote_file_manifest = osp.abspath(osp.join("test", "test_data", "rfm-1.json"))
-            logger.info("testCreateBagFromMetadataFile1: metadata_file=%s remote_file_manifest=%s" %
-                        (metadata_file, remote_file_manifest))
-            bag_path = e2b.create_bag_from_metadata_file(metadata_file, remote_file_manifest=remote_file_manifest)
+            logger.info("testCreateBagFromMetadataFile1: metadata_file=%s" % metadata_file)
+            bag_path = e2b.create_bag_from_metadata_file(metadata_file)
             self.assertTrue(osp.isdir(bag_path))
+            self.assertIsInstance(bagit.Bag(bag_path), bagit.Bag)
             self.assertRaises(bagit.BagIncompleteError, bdb.validate_bag, bag_path, fast=True)
             shutil.rmtree(osp.abspath(osp.join(bag_path, os.pardir)))
         except Exception as e:
@@ -114,15 +113,13 @@ class TestAPI(unittest.TestCase):
     def testCreateBagFromMetadataFile2(self):
         try:
             metadata_file = osp.abspath(osp.join("test", "test_data", "metadata-1.tsv"))
-            remote_file_manifest = osp.abspath(osp.join("test", "test_data", "rfm-1.json"))
             output_name = "encode2bag_test_bag"
-            logger.info("testCreateBagFromMetadataFile2: metadata_file=%s remote_file_manifest=%s output_name=%s" %
-                        (metadata_file, remote_file_manifest, output_name))
+            logger.info("testCreateBagFromMetadataFile2: metadata_file=%s output_name=%s" %
+                        (metadata_file, output_name))
             bag_path = e2b.create_bag_from_metadata_file(metadata_file,
-                                                         output_name=output_name,
-                                                         remote_file_manifest=remote_file_manifest,
-                                                         archive_format="zip")
-            self.assertTrue(osp.isfile(bag_path))
+                                                         output_name=output_name)
+            self.assertTrue(osp.isdir(bag_path))
+            self.assertIsInstance(bagit.Bag(bag_path), bagit.Bag)
             shutil.rmtree(osp.abspath(osp.join(bag_path, os.pardir)))
         except Exception as e:
             self.fail(gne(e))
@@ -130,49 +127,181 @@ class TestAPI(unittest.TestCase):
     def testCreateBagFromMetadataFile3(self):
         try:
             metadata_file = osp.abspath(osp.join("test", "test_data", "metadata-2.tsv"))
-            remote_file_manifest = osp.abspath(osp.join("test", "test_data", "rfm-2.json"))
             output_name = "encode2bag_test_bag"
             output_path = osp.join(self.tmpdir, "encode2bag_test")
             logger.info("testCreateBagFromMetadataFile3: "
-                        "metadata_file=%s remote_file_manifest=%s output_name=%s output_path=%s" %
-                        (metadata_file, remote_file_manifest, output_name, output_path))
+                        "metadata_file=%s output_name=%s output_path=%s" %
+                        (metadata_file, output_name, output_path))
+            bag_path = e2b.create_bag_from_metadata_file(metadata_file,
+                                                         output_path=output_path,
+                                                         output_name=output_name)
+            self.assertTrue(osp.isdir(bag_path))
+            self.assertIsInstance(bagit.Bag(bag_path), bagit.Bag)
+        except Exception as e:
+            self.fail(gne(e))
+
+    def testCreateBagFromMetadataFile4(self):
+        try:
+            metadata_file = osp.abspath(osp.join("test", "test_data", "metadata-1.tsv"))
+            output_name = "encode2bag_test_bag"
+            logger.info("testCreateBagFromMetadataFile4: metadata_file=%s output_name=%s" %
+                        (metadata_file, output_name))
+            bag_path = e2b.create_bag_from_metadata_file(metadata_file,
+                                                         output_name=output_name,
+                                                         archive_format="zip")
+            self.assertTrue(osp.isfile(bag_path))
+            shutil.rmtree(osp.abspath(osp.join(bag_path, os.pardir)))
+        except Exception as e:
+            self.fail(gne(e))
+
+    def testCreateBagFromMetadataFile5(self):
+        try:
+            metadata_file = osp.abspath(osp.join("test", "test_data", "metadata-2.tsv"))
+            output_name = "encode2bag_test_bag"
+            output_path = osp.join(self.tmpdir, "encode2bag_test")
+            logger.info("testCreateBagFromMetadataFile5: "
+                        "metadata_file=%s output_name=%s output_path=%s" %
+                        (metadata_file, output_name, output_path))
             bag_path = e2b.create_bag_from_metadata_file(metadata_file,
                                                          output_path=output_path,
                                                          output_name=output_name,
-                                                         remote_file_manifest=remote_file_manifest,
                                                          archive_format="tgz")
             self.assertTrue(osp.isfile(bag_path))
         except Exception as e:
             self.fail(gne(e))
 
-    def testCreateBagFromURL1(self):
+    def testCreateBagFromMetadataFile6(self):
         try:
-            url = "https://www.encodeproject.org/search/" \
-                  "?type=Experiment&assay_title=RNA-seq&replicates.library.biosample.biosample_type=stem+cell"
+            metadata_file = osp.abspath(osp.join("test", "test_data", "metadata-2.tsv"))
             output_name = "encode2bag_test_bag"
             output_path = osp.join(self.tmpdir, "encode2bag_test")
-            logger.info("testCreateBagFromURL1: url=%s output_path=%s" %
-                        (url, output_path))
-            bag_path = e2b.create_bag_from_url(url,
-                                               output_name=output_name,
-                                               output_path=output_path,
-                                               archive_format="zip")
-            self.assertTrue(osp.isfile(bag_path))
+            logger.info("testCreateBagFromMetadataFile6: "
+                        "metadata_file=%s output_name=%s output_path=%s" %
+                        (metadata_file, output_name, output_path))
+            bag_path = e2b.create_bag_from_metadata_file(metadata_file,
+                                                         output_path=output_path,
+                                                         output_name=output_name,
+                                                         creator_name="encode2bag unit test",
+                                                         creator_orcid="0000-0003-2280-917X",
+                                                         create_ro_manifest=True)
+            self.assertTrue(osp.isdir(bag_path))
+            self.assertIsInstance(bagit.Bag(bag_path), bagit.Bag)
+            self.assertTrue(osp.isfile(osp.join(bag_path, "metadata", "manifest.json")))
         except Exception as e:
             self.fail(gne(e))
 
-    def testCreateBagFromURL2(self):
+    def testCreateBagFromURL1(self):
         try:
             url = "https://www.encodeproject.org/batch_download/" \
                   "type=Experiment&assay_title=RNA-seq&replicates.library.biosample.biosample_type=stem+cell"
             output_name = "encode2bag_test_bag"
             output_path = osp.join(self.tmpdir, "encode2bag_test")
-            logger.info("testCreateBagFromURL2: url=%s output_name=%s, output_path=%s" %
+            logger.info("testCreateBagFromURL1: url=%s output_name=%s, output_path=%s" %
+                        (url, output_name, output_path))
+            bag_path = e2b.create_bag_from_url(url,
+                                               output_name=output_name,
+                                               output_path=output_path)
+            self.assertTrue(osp.isdir(bag_path))
+            self.assertIsInstance(bagit.Bag(bag_path), bagit.Bag)
+        except Exception as e:
+            self.fail(gne(e))
+
+    def testCreateBagFromURL2(self):
+        try:
+            url = "https://www.encodeproject.org/search/" \
+                  "?type=Experiment&assay_title=RNA-seq&replicates.library.biosample.biosample_type=stem+cell"
+            output_name = "encode2bag_test_bag"
+            output_path = osp.join(self.tmpdir, "encode2bag_test")
+            logger.info("testCreateBagFromURL2: url=%s output_path=%s" %
+                        (url, output_path))
+            bag_path = e2b.create_bag_from_url(url,
+                                               output_name=output_name,
+                                               output_path=output_path)
+            self.assertTrue(osp.isdir(bag_path))
+            self.assertIsInstance(bagit.Bag(bag_path), bagit.Bag)
+        except Exception as e:
+            self.fail(gne(e))
+
+    def testCreateBagFromURL3(self):
+        try:
+            url = "https://www.encodeproject.org/report/" \
+                  "?type=Experiment&assay_title=RNA-seq&replicates.library.biosample.biosample_type=stem+cell"
+            output_name = "encode2bag_test_bag"
+            output_path = osp.join(self.tmpdir, "encode2bag_test")
+            logger.info("testCreateBagFromURL3: url=%s output_name=%s, output_path=%s" %
+                        (url, output_name, output_path))
+            bag_path = e2b.create_bag_from_url(url,
+                                               output_name=output_name,
+                                               output_path=output_path)
+            self.assertTrue(osp.isdir(bag_path))
+            self.assertIsInstance(bagit.Bag(bag_path), bagit.Bag)
+        except Exception as e:
+            self.fail(gne(e))
+
+    def testCreateBagFromURL4(self):
+        try:
+            url = "https://www.encodeproject.org/matrix/" \
+                  "?type=Experiment&assay_title=RNA-seq&replicates.library.biosample.biosample_type=stem+cell"
+            output_name = "encode2bag_test_bag"
+            output_path = osp.join(self.tmpdir, "encode2bag_test")
+            logger.info("testCreateBagFromURL4: url=%s output_name=%s, output_path=%s" %
+                        (url, output_name, output_path))
+            bag_path = e2b.create_bag_from_url(url,
+                                               output_name=output_name,
+                                               output_path=output_path)
+            self.assertTrue(osp.isdir(bag_path))
+            self.assertIsInstance(bagit.Bag(bag_path), bagit.Bag)
+        except Exception as e:
+            self.fail(gne(e))
+
+    def testCreateBagFromURL5(self):
+        try:
+            url = "https://www.encodeproject.org/batch_download/" \
+                  "type=Experiment&assay_title=RNA-seq&replicates.library.biosample.biosample_type=stem+cell"
+            output_name = "encode2bag_test_bag"
+            output_path = osp.join(self.tmpdir, "encode2bag_test")
+            logger.info("testCreateBagFromURL5: url=%s output_name=%s, output_path=%s" %
+                        (url, output_name, output_path))
+            bag_path = e2b.create_bag_from_url(url,
+                                               output_name=output_name,
+                                               output_path=output_path,
+                                               creator_name="encode2bag unit test",
+                                               creator_orcid="0000-0003-2280-917X",
+                                               create_ro_manifest=True)
+            self.assertTrue(osp.isdir(bag_path))
+            self.assertIsInstance(bagit.Bag(bag_path), bagit.Bag)
+            self.assertTrue(osp.isfile(osp.join(bag_path, "metadata", "manifest.json")))
+        except Exception as e:
+            self.fail(gne(e))
+
+    def testCreateBagFromURL6(self):
+        try:
+            url = "https://www.encodeproject.org/batch_download/" \
+                  "type=Experiment&assay_title=RNA-seq&replicates.library.biosample.biosample_type=stem+cell"
+            output_name = "encode2bag_test_bag"
+            output_path = osp.join(self.tmpdir, "encode2bag_test")
+            logger.info("testCreateBagFromURL6: url=%s output_name=%s, output_path=%s" %
                         (url, output_name, output_path))
             bag_path = e2b.create_bag_from_url(url,
                                                output_name=output_name,
                                                output_path=output_path,
                                                archive_format="tgz")
+            self.assertTrue(osp.isfile(bag_path))
+        except Exception as e:
+            self.fail(gne(e))
+
+    def testCreateBagFromURL7(self):
+        try:
+            url = "https://www.encodeproject.org/batch_download/" \
+                  "type=Experiment&assay_title=RNA-seq&replicates.library.biosample.biosample_type=stem+cell"
+            output_name = "encode2bag_test_bag"
+            output_path = osp.join(self.tmpdir, "encode2bag_test")
+            logger.info("testCreateBagFromURL7: url=%s output_name=%s, output_path=%s" %
+                        (url, output_name, output_path))
+            bag_path = e2b.create_bag_from_url(url,
+                                               output_name=output_name,
+                                               output_path=output_path,
+                                               archive_format="zip")
             self.assertTrue(osp.isfile(bag_path))
         except Exception as e:
             self.fail(gne(e))

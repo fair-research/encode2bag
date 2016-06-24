@@ -37,6 +37,19 @@ def parse_cli():
         "--archiver", choices=['zip', 'tar', 'tgz'], help="Archive the output bag using the specified format.")
 
     parser.add_argument(
+        '--create-ro-manifest', action="store_true",
+        help="Generate a Research Object compatible manifest. See http://www.researchobject.org for more information.")
+
+    parser.add_argument(
+        '--creator-name', metavar="<person or entity name>",
+        help="Optional name of the person or entity responsible for the creation of this bag, "
+             "for inclusion in the bag metadata.")
+
+    parser.add_argument(
+        '--creator-orcid', metavar="<orcid>",
+        help="Optional ORCID identifier of the bag creator, for inclusion in the bag metadata.")
+
+    parser.add_argument(
         '--quiet', action="store_true", help="Suppress logging output.")
 
     parser.add_argument(
@@ -67,12 +80,18 @@ def main():
             e2b.create_bag_from_url(args.url,
                                     output_name=args.output_name,
                                     output_path=args.output_path,
-                                    archive_format=args.archiver)
+                                    archive_format=args.archiver,
+                                    creator_name=args.creator_name,
+                                    creator_orcid=args.creator_orcid,
+                                    create_ro_manifest=args.create_ro_manifest)
         elif args.metadata_file:
             e2b.create_bag_from_metadata_file(args.metadata_file,
                                               output_name=args.output_name,
                                               output_path=args.output_path,
-                                              archive_format=args.archiver)
+                                              archive_format=args.archiver,
+                                              creator_name=args.creator_name,
+                                              creator_orcid=args.creator_orcid,
+                                              create_ro_manifest=args.create_ro_manifest)
     except Exception as e:
         result = 1
         error = "Error: %s" % gne(e)
