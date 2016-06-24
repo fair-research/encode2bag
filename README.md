@@ -39,30 +39,53 @@ python setup.py test
 usage: encode2bag_cli.py [-h] [--url <search url>] [--metadata-file <file>]
                          [--output-name <directory name>]
                          [--output-path <path>] [--archiver {zip,tar,tgz}]
-                         [--quiet] [--debug]
+                         [--create-ro-manifest]
+                         [--creator-name <person or entity name>]
+                         [--creator-orcid <orcid>] [--quiet] [--debug]
 
 Utility for converting ENCODE search URLs or metadata files into BDBags
 
 optional arguments:
   -h, --help            show this help message and exit
+
   --url <search url>    Optional path to an ENCODE search url e.g., "https://w
                         ww.encodeproject.org/search/?type=Experiment&assay_tit
                         le=RNA-seq&replicates.library.biosample.biosample_type
                         =stem+cell". Either this argument or the "--metadata-
                         file" argument must be supplied.
+
   --metadata-file <file>
                         Optional path to a ENCODE format metadata file e.g.,
                         "metadata.tsv". Either this argument or the "--url"
                         argument must be supplied.
+
   --output-name <directory name>
                         Optional name for the output bag directory/bag archive
                         file. If not specified, it will automatically be
                         generated.
+
   --output-path <path>  Optional path to a base directory in which the bag
                         will be created. If not specified, a temporary
                         directory will be created.
+
   --archiver {zip,tar,tgz}
                         Archive the output bag using the specified format.
+
+  --create-ro-manifest  Generate a Research Object compatible manifest. See
+                        http://www.researchobject.org for more information.
+
+  --creator-name <person or entity name>
+                        Optional name of the person or entity responsible for
+                        the creation of this bag, for inclusion in the bag
+                        metadata.
+
+  --creator-orcid <orcid>
+                        Optional ORCID identifier of the bag creator, for
+                        inclusion in the bag metadata.
+
   --quiet               Suppress logging output.
+
   --debug               Enable debug logging output.
+
+For more information see: http://github.com/ini-bdds/encode2bag
 ```
