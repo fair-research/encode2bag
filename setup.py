@@ -14,7 +14,7 @@ setup(
     url='https://github.com/ini-bdds/encode2bag/',
     maintainer='USC Information Sciences Institute ISR Division',
     maintainer_email='misd-support@isi.edu',
-    version="0.1.1",
+    version="0.1.2",
     packages=find_packages(),
     test_suite='test',
     entry_points={

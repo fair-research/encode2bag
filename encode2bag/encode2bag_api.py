@@ -11,6 +11,7 @@ import tempfile
 from bdbag import bdbag_api as bdb
 from bdbag import bdbag_ro as ro
 import os.path as osp
+import encode2bag.ontology_mappings as om
 
 if sys.version_info > (3,):
     from urllib.parse import urlsplit
@@ -122,10 +123,11 @@ def convert_tsv_metadata_to_remote_file_manifest(input_path, output_path, ro_man
                 if ro_manifest:
                     uri = ''.join(["../data/", filename])
                     file_list.append(uri)
+                    file_format = row["File format"]
+                    conforms_to = om.FILETYPE_ONTOLOGY_MAP.get(file_format, None)
                     ro.add_aggregate(ro_manifest, uri,
-                                     mediatype=''.join(["application/x-", row["File format"]]),
-                                     conforms_to=str("http://www.ebi.ac.uk/ols/search?q=%s&exact=on"
-                                                     % row["Biosample term id"]))
+                                     mediatype=''.join(["application/x-", file_format]),
+                                     conforms_to=conforms_to if conforms_to else None)
             json.dump(entries, rfm, sort_keys=True, indent=4)
     if ro_manifest and len(file_list) > 0:
         ro.add_annotation(ro_manifest, file_list, content=''.join(["../data/", os.path.basename(input_path)]))
